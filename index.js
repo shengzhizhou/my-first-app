@@ -1,7 +1,10 @@
-module.exports = app => {
+module.exports = robot => {
   // Your code here
-  app.log('Yay, the app was loaded!')
+  robot.on('issues.opened',async context=>{
 
+  	const params= context.issues({body:'hello owrld!'})
+ return context.github.issues.createComment(params)
+})
   // For more information on building apps:
   // https://probot.github.io/docs/
 
